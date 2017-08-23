@@ -18,12 +18,6 @@ const mutations = {
   updateOwner (state, owner) {
     state.report.owner = owner
   },
-  updateOwnerName (state, name) {
-    state.report.owner.name = name
-  },
-  updateOwnerMail (state, mail) {
-    state.report.owner.mail = mail
-  },
   addIssue (state, issue) {
     const newIssue = issue
     state.report.issues.push(newIssue)
@@ -49,12 +43,6 @@ const actions = {
   },
   updateOwner ({ commit }, owner) {
     commit('updateOwner', owner)
-  },
-  updateOwnerName ({ commit }, name) {
-    commit('updateOwnerName', name)
-  },
-  updateOwnerMail ({ commit }, mail) {
-    commit('updateOwnerMail', mail)
   },
   addIssue ({ commit }, issue) {
     commit('addIssue', issue)
