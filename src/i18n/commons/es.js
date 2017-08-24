@@ -1,5 +1,5 @@
 export default {
-  title: 'Bienvenido a FeedMe, hagamos que {project} sea increible',
+  title: 'Hagamos que {project} sea increible',
   buttons: {
     back: 'Atras',
     next: 'Siguiente',

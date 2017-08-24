@@ -3000,6 +3000,10 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -4847,10 +4851,6 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-form-wizard@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/vue-form-wizard/-/vue-form-wizard-0.6.3.tgz#528dc92cf7c1a377fb66726be44a52bc9e9ebec7"
-
 vue-hot-reload-api@^2.0.11:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -4901,6 +4901,10 @@ vue-template-es2015-compiler@^1.2.2:
 vue@^2.2.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.4.2.tgz#a9855261f191c978cc0dc1150531b8d08149b58c"
+
+vuetify@^0.14.11:
+  version "0.14.11"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-0.14.11.tgz#757760664373ba7a51d70d41a4b527595bbfed36"
 
 vuex@^2.3.0:
   version "2.3.1"

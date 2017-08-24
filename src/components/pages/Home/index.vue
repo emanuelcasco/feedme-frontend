@@ -1,6 +1,6 @@
 <template lang="pug">
-  .home
-    h1 HOME
+.home
+  h1 Bienvenido a FeedMe
 </template>
 
 <script>

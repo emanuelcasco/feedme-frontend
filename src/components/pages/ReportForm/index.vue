@@ -1,25 +1,28 @@
 <template lang="pug">
   .issue
-    .container(v-if="project")
-      h2 {{ $t('title', { project: project.name }) }}
-
-      form-wizard(@on-complete='onComplete', 
-                  color='#00A1DF',
-                  title="", subtitle="",
-                  :back-button-text="$t('buttons.back')",
-                  :next-button-text="$t('buttons.next')",
-                  :finish-button-text="$t('buttons.finish')")
-
-        tab-content(:title="$t('step1.title')", :before-change="validateStep1")
-          step1
-
-        tab-content(:title="$t('step2.title')", :before-change="validateStep2")
-          step2
-
-        tab-content(:title="$t('step3.title')")
-          step3
-
-    loader(v-else)
+    loader(v-if="!project")
+    v-stepper(v-model='step', vertical, v-else)
+      v-container(fluid)
+        h2 {{ $t('title', { project: project.name }) }}
+      
+      v-stepper-step(step='1', v-bind:complete='step > 1')
+        | {{ $t('step1.title') }}
+        small Así vamos a poder responderte
+      v-stepper-content(step='1')
+        step1
+      v-stepper-step(step='2', v-bind:complete='step > 2') 
+        | {{ $t('step2.title') }}
+        small Podes cargar cuantos issues creas necesarios
+      v-stepper-content(step='2')
+        step2
+      
+      v-stepper-step(step='3', v-bind:complete='step > 3') 
+        | {{ $t('step3.title') }}
+        small Solo un poco más
+      v-stepper-content(step='3')
+        step3
+        v-btn(primary, round, @click="onComplete") Finalizar
+        v-btn(round, @click='step--') Atras
 </template>
 
 <script>
@@ -32,20 +35,24 @@ import Step2 from './Steps/Step2'
 import Step3 from './Steps/Step3'
 
 export default {
+  data () {
+    return {
+      step: 0,
+      errorList: []
+    }
+  },
   props: ['hash'],
   computed: {
     ...mapGetters({
-      project: 'project',
-      report: 'report'
+      project: 'project'
     })
   },
   created () {
     this.$store.dispatch('findProyect', this.hash)
   },
   mounted () {
-    this.$bus.$on('errors-changed', (newErrors) => {
-      this.errorList = newErrors.items
-    })
+    this.$bus.$on('forward', this.forward)
+    this.$bus.$on('backward', this.backward)
   },
   components: {
     Step1,
@@ -53,22 +60,15 @@ export default {
     Step3
   },
   methods: {
-    validateStep1 () {
-      this.$bus.$emit('validateStep1')
-      if (this.errorList.length === 0) {
-        this.$bus.$emit('commitStep1')
-        return true
-      } else {
-        return false
-      }
+    forward () {
+      this.step++
     },
-    validateStep2 () {
-      return (this.report.issues.length > 0)
+    backward () {
+      this.step--
     },
     onComplete () {
       reportService.create(this.report)
         .then(response => {
-          console.log(response)
           this.$router.push('/sent')
         })
         .catch(e => {
@@ -85,3 +85,35 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+.label {
+  font-weight: bold;
+}
+
+.span {
+  margin-top: -25px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.error-msg {
+  color: red;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .issue{
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (min-width: 900px) {
+  .issue {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+</style>
