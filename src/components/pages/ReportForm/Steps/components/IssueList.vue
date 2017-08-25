@@ -39,7 +39,7 @@ export default {
   methods: {
     editIssue (issue) {
       const index = this.report.issues.indexOf(issue)
-      this.$bus.$emit('backward')
+      this.$bus.$emit('changeStep', 2)
       this.$store.dispatch('removeIssue', index)
       this.$store.dispatch('updateIssue', issue)
     },

@@ -9,7 +9,7 @@
 
   v-btn(primary, round, @click="onComplete")
     | Finalizar
-  v-btn(round, @click='back')
+  v-btn(round, @click='backStep')
     | Atras
 </template>
 
@@ -34,8 +34,8 @@ export default {
           this.$router.push('/sent')
         })
     },
-    back () {
-      this.$bus.$emit('backward')
+    backStep () {
+      this.$bus.$emit('changeStep', 2)
     }
   }
 }

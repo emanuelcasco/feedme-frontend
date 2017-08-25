@@ -43,7 +43,7 @@ export default {
       this.$validator.validateAll().then(ok => {
         if (ok) {
           this.$store.dispatch('updateOwner', this.owner)
-          this.$bus.$emit('forward')
+          this.$bus.$emit('changeStep', 2)
         }
       })
     }

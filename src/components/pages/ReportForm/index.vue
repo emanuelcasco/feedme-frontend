@@ -50,8 +50,7 @@ export default {
     this.$store.dispatch('findProyect', this.hash)
   },
   mounted () {
-    this.$bus.$on('forward', this.forward)
-    this.$bus.$on('backward', this.backward)
+    this.$bus.$on('changeStep', this.changeStep)
   },
   components: {
     Step1,
@@ -59,11 +58,8 @@ export default {
     Step3
   },
   methods: {
-    forward () {
-      this.step++
-    },
-    backward () {
-      this.step--
+    changeStep (step) {
+      this.step = step
     }
   },
   watch: {

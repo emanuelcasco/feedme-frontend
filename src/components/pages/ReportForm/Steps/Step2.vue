@@ -81,13 +81,13 @@ export default {
     nextStep () {
       this.errorMsg = null
       if (this.report.issues.length > 0) {
-        this.$bus.$emit('forward')
+        this.$bus.$emit('changeStep', 3)
       } else {
         this.errorMsg = 'Por favor, ingrese por lo menos un error para poder continuar'
       }
     },
     backStep () {
-      this.$bus.$emit('backward')
+      this.$bus.$emit('changeStep', 1)
     }
   }
 }
