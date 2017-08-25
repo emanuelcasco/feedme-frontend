@@ -4,6 +4,6 @@
  "description": "feedback wolox",
  "author": "Emanuel Casco",
  "scripts": {
-   "postinstall": "yarn add express"
+   "postinstall": "npm i express"
  }
 }
