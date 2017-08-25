@@ -1,5 +1,7 @@
 <template lang="pug">
 v-list(two-line='')
+  h5.text-xs-left
+    | Incidencias
   v-list-tile(v-for='issue, index  in report.issues', v-bind:key='index ')
     v-list-tile-content
       v-list-tile-title Issue Nº {{ index + 1 }}
@@ -11,6 +13,8 @@ v-list(two-line='')
       v-icon(@click="editIssue(issue)").blue--text.text--lighten-1 edit
       v-icon(@click="removeIssue(issue)").red--text.text--lighten-1 delete
     v-divider(v-if='index  + 1 < report.issues.length')
+  p(v-if="report.issues.length === 0")
+    | No hay incidencias cargadas
 </template>
 
 <script>
@@ -35,6 +39,7 @@ export default {
   methods: {
     editIssue (issue) {
       const index = this.report.issues.indexOf(issue)
+      this.$bus.$emit('backward')
       this.$store.dispatch('removeIssue', index)
       this.$store.dispatch('updateIssue', issue)
     },
@@ -66,3 +71,4 @@ export default {
   }
 }
 </script>
+

@@ -1,12 +1,21 @@
 <template lang="pug">
-.step3
-  .ownerDetail
-    h4 Nombre: {{ report.owner.name }}
-    span Mail: {{ report.owner.mail }}
+.step3.reportDetail
+  v-container
+    h4 
+      | {{ report.owner.name }}
+    span 
+      | {{ report.owner.mail }}
   issue-list
+
+  v-btn(primary, round, @click="onComplete")
+    | Finalizar
+  v-btn(round, @click='back')
+    | Atras
 </template>
 
 <script>
+import reportService from '@/api/report'
+
 import { mapGetters } from 'vuex'
 
 import IssueList from './components/IssueList'
@@ -17,6 +26,17 @@ export default {
     ...mapGetters({
       report: 'report'
     })
+  },
+  methods: {
+    onComplete () {
+      reportService.create(this.report)
+        .then(response => {
+          this.$router.push('/sent')
+        })
+    },
+    back () {
+      this.$bus.$emit('backward')
+    }
   }
 }
 </script>

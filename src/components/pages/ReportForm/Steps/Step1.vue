@@ -12,7 +12,6 @@ v-container(fluid).step1
         placeholder="Joe Doe"
       )
       span.span.error-msg(v-show="errors.first('name')") {{ errors.first('name') }}
-
   v-layout(row wrap)
     label.label {{ $t('step1.mail') }}
   v-layout(row wrap)
@@ -26,8 +25,7 @@ v-container(fluid).step1
       )
     v-flex(xs12)
       span.span.error-msg(v-show="errors.first('mail')") {{ errors.first('mail') }}
-
-  v-btn(primary, round, @click="next") Continue
+  v-btn(primary, round, @click="nextStep") Continue
 </template>
 
 <script>
@@ -41,18 +39,13 @@ export default {
     }
   },
   methods: {
-    next () {
+    nextStep () {
       this.$validator.validateAll().then(ok => {
         if (ok) {
+          this.$store.dispatch('updateOwner', this.owner)
           this.$bus.$emit('forward')
         }
       })
-    },
-    back () {
-      this.$bus.$emit('backward')
-    },
-    commit () {
-      this.$store.dispatch('updateOwner', this.owner)
     }
   }
 }

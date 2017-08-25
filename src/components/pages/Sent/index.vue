@@ -1,7 +1,6 @@
 <template lang="pug">
 .end
   h3 {{ $t('sent.thanks', { name: report.owner.name }) }}
-  
   button(@click="clear") {{ $t('sent.finish') }}
 </template>
 
@@ -15,7 +14,7 @@ export default {
     })
   },
   beforeMount () {
-    if (this.report.owner.name === '') {
+    if (!this.report.owner.name) {
       this.$router.push('/')
     }
   },

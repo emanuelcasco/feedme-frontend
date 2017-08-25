@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-footer(class="text-xs-center")
+  v-footer.text-xs-center
     v-spacer
       | © {{ new Date().getFullYear() }} - Made with 
       b.red--text ❤ 

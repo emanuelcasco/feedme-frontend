@@ -18,6 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
+$primary: red;
 
 @import"~vuetify/dist/vuetify.min.css";
 

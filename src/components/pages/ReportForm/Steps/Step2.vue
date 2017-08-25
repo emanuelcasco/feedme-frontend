@@ -39,10 +39,10 @@ v-container
   v-layout(row)
     v-container
       issue-list
-  span.span.error-msg(v-show="errorMsg.length > 0", v-for="e in errorMsg") 
-    | {{ e }}
-  v-btn(primary, round, @click='next') Continue
-  v-btn(round, outline, @click='back') Atras
+  span.span.error-msg(v-if="errorMsg") 
+    | {{ errorMsg }}
+  v-btn(primary, round, @click='nextStep') Continue
+  v-btn(round, outline, @click='backStep') Atras
 </template>
 
 <script>
@@ -54,7 +54,7 @@ export default {
   components: { IssueList },
   data () {
     return {
-      errorMsg: [],
+      errorMsg: null,
       items: [
         { text: 'Minima', value: '1' },
         { text: 'Media', value: '2' },
@@ -70,6 +70,7 @@ export default {
   },
   methods: {
     addIssue () {
+      this.errorMsg = null
       this.$validator.validateAll().then(res => {
         if (res) {
           this.$store.dispatch('addIssue', this.issue)
@@ -77,16 +78,15 @@ export default {
         }
       })
     },
-    next () {
+    nextStep () {
+      this.errorMsg = null
       if (this.report.issues.length > 0) {
         this.$bus.$emit('forward')
       } else {
-        this.errorMsg = []
-        this.$validator.validateAll()
-        this.errorMsg.push('Por favor, ingrese por lo menos un error para poder continuar')
+        this.errorMsg = 'Por favor, ingrese por lo menos un error para poder continuar'
       }
     },
-    back () {
+    backStep () {
       this.$bus.$emit('backward')
     }
   }

@@ -1,9 +1,10 @@
 <template lang="pug">
   v-toolbar
-    v-toolbar-title FEEDME
+    img(src="../../assets/logo.svg", width="150")
     v-spacer
-    v-toolbar-items(class="hidden-sm-and-down")
-      v-btn(disabled flat) {{ project ? project.name : '' }}
+    v-toolbar-items.hidden-xs
+      v-btn(disabled flat) 
+        | {{ project ? project.name : '' }}
 </template>
 
 <script>
