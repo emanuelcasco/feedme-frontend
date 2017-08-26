@@ -4,6 +4,6 @@
  "description": "feedback wolox",
  "author": "Emanuel Casco",
  "scripts": {
-   "postinstall": "npm i express"
+   "postinstall": "npm i express connect-history-api-fallback"
  }
 }
