@@ -2,8 +2,8 @@ import api from './api'
 
 const projectService = { }
 
-projectService.find = (id) => {
-  return api.get(`/project/${id}`).then((response) => {
+projectService.find = (hash) => {
+  return api.get(`/project/${hash}`).then((response) => {
     return response.data
   })
 }

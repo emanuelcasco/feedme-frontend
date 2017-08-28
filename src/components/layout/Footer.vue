@@ -8,7 +8,8 @@
 
 <style lang="scss" scoped>
 .footer {
-  background: none;
+  background-color: #363636;
+  color: whitesmoke;
 }
 </style>
 

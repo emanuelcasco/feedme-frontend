@@ -18,8 +18,8 @@ v-container(fluid)
         type="text",
         v-validate="'required'"
       )
-      span.span.error-msg(v-show="errors.first('code')") 
-        | {{ errors.first('code') }}
+      span.span.error-msg(v-if="errorMsg") 
+        | {{ errorMsg.items[0].msg }}
       div
         v-btn(principal dark, @click="searchByCode") 
           | Buscar
@@ -30,12 +30,15 @@ export default {
   name: 'home',
   data () {
     return {
+      code: '',
+      errorMsg: null,
       msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
     searchByCode () {
       this.$validator.validateAll().then(res => {
+        this.errorMsg = this.errors
         if (res) {
           this.$router.push(`/report/${this.code}`)
         }

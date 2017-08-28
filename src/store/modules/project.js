@@ -15,8 +15,8 @@ const mutations = {
     state.project = project
     state.projectNotFound = false
   },
-  notFound (state) {
-    state.projectNotFound = true
+  projectNotFound (state, value) {
+    state.projectNotFound = value
   }
 }
 
@@ -24,9 +24,14 @@ const actions = {
   findProyect ({ commit }, projectId) {
     projectService.find(projectId)
       .then(result => {
-        const project = result
-        commit('setProject', project)
-        commit('updateProject', project)
+        if (result) {
+          const project = result
+          commit('setProject', false)
+          commit('setProject', project)
+          commit('updateProject', project)
+        } else {
+          commit('projectNotFound', true)
+        }
       })
   }
 }

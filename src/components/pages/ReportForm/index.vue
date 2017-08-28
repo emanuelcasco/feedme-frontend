@@ -43,7 +43,8 @@ export default {
   props: ['hash'],
   computed: {
     ...mapGetters({
-      project: 'project'
+      project: 'project',
+      projectNotFound: 'projectNotFound'
     })
   },
   created () {
@@ -67,6 +68,9 @@ export default {
       const locale = this.project.locale
       this.$validator.setLocale(locale)
       this.$i18n.locale = locale
+    },
+    projectNotFound () {
+      if (this.projectNotFound) this.$router.push(`/notFound`)
     }
   }
 }

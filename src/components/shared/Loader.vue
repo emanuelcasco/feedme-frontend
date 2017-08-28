@@ -1,5 +1,7 @@
 <template lang="pug">
-  .loader
+  v-container(fluid)
+    v-layout.text-xs-center
+        .loader
 </template>
 
 <style lang="scss" scoped>
@@ -10,10 +12,10 @@
   border-right: 10px solid #EEEEEE;
   border-bottom: 10px solid #C4D600;
   border-left: 10px solid #EEEEEE;
-  width: 50px;
-  height: 50px;
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
