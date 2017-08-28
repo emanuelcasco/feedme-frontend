@@ -26,7 +26,7 @@ const actions = {
       .then(result => {
         if (result) {
           const project = result
-          commit('setProject', false)
+          commit('projectNotFound', false)
           commit('setProject', project)
           commit('updateProject', project)
         } else {
