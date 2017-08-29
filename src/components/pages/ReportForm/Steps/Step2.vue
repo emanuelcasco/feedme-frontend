@@ -1,16 +1,15 @@
 <template lang="pug">
 v-container
-  label.label
-    | {{ $t('step2.descLabel') }}
   v-layout(row)
     v-flex(xs12)
+      label.label
+        | {{ $t('step2.descLabel') }}
       v-text-field(
         name='desc', 
-        :label="$t('step2.desc')", 
         v-model="issue.desc", 
         textarea
-        v-validate="'required|min:30|max:250'",
-        counter, max="250"
+        v-validate="'required|min:30|max:500'",
+        counter, max="500"
       )
       span.span.error-msg(v-show="errors.first('desc')") 
         | {{ errors.first('desc') }}
@@ -55,10 +54,12 @@ v-container
       issue-list
   span.span.error-msg(v-if="errorMsg") 
     | {{ errorMsg }}
-  v-btn(primary, round, @click='nextStep')
-    | {{ $t('buttons.next') }}
-  v-btn(round, outline, @click='backStep')
-    | {{ $t('buttons.back') }}
+  v-layout(row)
+    v-container
+      v-btn(primary, round, @click='nextStep')
+        | {{ $t('buttons.next') }}
+      v-btn(round, outline, @click='backStep')
+        | {{ $t('buttons.back') }}
 </template>
 
 <script>

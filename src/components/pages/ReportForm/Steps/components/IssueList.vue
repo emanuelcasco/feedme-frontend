@@ -1,22 +1,24 @@
 <template lang="pug">
-.issueList
-  v-list(two-line)
-    h5.text-xs-left
-      | {{ $t('issueList.issues') }}
-    v-list-tile(v-for='issue, index  in report.issues', v-bind:key='index ')
-      v-list-tile-content
-        v-list-tile-title 
-          b
-            | Nº {{ index + 1 }}
-        v-list-tile-sub-title.grey--text.text--darken-4
-          | <b>{{ $t('type') }}: </b> {{ types[issue.type - 1] }}
-          | <b>{{ $t('priority') }}: </b> {{ priorities[issue.priority - 1] }}
-          | <b>{{ $t('criticity') }}: </b> {{ criticities[issue.criticity - 1] }} 
-        v-list-tile-sub-title {{ issue.desc | elipsis }}
-      v-list-tile-action
-        v-icon(@click="editIssue(issue)").blue--text.text--lighten-1 edit
-        v-icon(@click="removeIssue(issue)").red--text.text--lighten-1 delete
-      v-divider(v-if='index  + 1 < report.issues.length')
+v-list(three-line)
+  h5.text-xs-left
+    | {{ $t('issueList.issues') }}
+  v-expansion-panel
+    v-expansion-panel-content(v-for='issue, index  in report.issues', v-bind:key='index ')
+      div(slot='header') 
+        v-icon(@click="editIssue(index, issue)").indigo--text edit
+        v-icon(@click="removeIssue(index)").red--text delete
+        b Nº {{ index + 1 }}: 
+        | {{ issue.desc | elipsis }}
+      v-card
+        v-card-text.grey.lighten-3
+          | {{ issue.desc }}
+          div
+            v-chip(outline)
+              b {{ types[issue.type - 1] }}
+            v-chip(outline)
+              b {{ $t('priority') }} {{ priorities[issue.priority - 1] }}
+            v-chip(outline)
+              b {{ $t('criticity') }} {{ criticities[issue.criticity - 1] }}
     p(v-if="report.issues.length === 0")
       | {{ $t('issueList.errorMsg') }}
 </template>
@@ -27,6 +29,7 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
+      dialog: false,
       priorities: [
         this.$t('level.low'),
         this.$t('level.medium'),
@@ -50,16 +53,18 @@ export default {
     })
   },
   methods: {
-    editIssue (issue) {
-      const index = this.report.issues.indexOf(issue)
+    editIssue (index, issue) {
       this.$bus.$emit('changeStep', 2)
       this.$store.dispatch('removeIssue', index)
       this.$store.dispatch('updateIssue', issue)
     },
-    removeIssue (issue) {
-      const index = this.report.issues.indexOf(issue)
+    removeIssue (index) {
       this.$store.dispatch('removeIssue', index)
-    }
+      if (this.report.issues.length === 0) {
+        this.$bus.$emit('changeStep', 2)
+      }
+    },
+    showDescription () {}
   },
   filters: {
     elipsis (value) {
@@ -72,3 +77,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.expansion-panel {
+  box-shadow: none;
+  li {
+    border-top: 1px solid whitesmoke;
+    border-bottom: 1px solid whitesmoke;
+    border-left: none;
+    border-right: none;
+  }
+}
+</style>

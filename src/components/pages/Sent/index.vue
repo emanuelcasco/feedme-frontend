@@ -22,8 +22,6 @@ export default {
   },
   methods: {
     clear () {
-      this.$store.dispatch('clearIssue')
-      this.$store.dispatch('clearReport')
       this.$router.push('/')
     }
   }

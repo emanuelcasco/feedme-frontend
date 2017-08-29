@@ -41,6 +41,8 @@ export default {
     onComplete () {
       reportService.createReport(this.report)
         .then(response => {
+          this.$store.dispatch('clearIssue')
+          this.$store.dispatch('clearReport')
           this.$router.push('/sent')
         })
         .catch(() => {
