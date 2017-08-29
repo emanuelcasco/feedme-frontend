@@ -4,7 +4,6 @@ import Vuex from 'vuex'
 import project from './modules/project'
 import issue from './modules/issue'
 import report from './modules/report'
-import step from './modules/step'
 
 Vue.use(Vuex)
 
@@ -14,7 +13,6 @@ export default new Vuex.Store({
   modules: {
     project,
     issue,
-    report,
-    step
+    report
   }
 })
