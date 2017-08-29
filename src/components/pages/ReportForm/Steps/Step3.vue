@@ -5,9 +5,13 @@
       | {{ report.owner.name }}
     span 
       | {{ report.owner.mail }}
-  issue-list
-  span.span.error-msg(v-if="errorMsg") 
-    | {{ errorMsg }}
+  v-layout(row)
+    v-container
+      issue-list.issueList
+  v-layout(row)
+    v-container
+      span.span.error-msg(v-if="errorMsg") 
+        | {{ errorMsg }}
   v-btn(primary, round, @click="onComplete")
     | {{ $t('buttons.finish') }}
   v-btn(round, @click='backStep')

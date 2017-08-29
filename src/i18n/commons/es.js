@@ -18,7 +18,7 @@ export default {
   buttons: {
     back: 'Anterior',
     next: 'Siguiente',
-    add: 'Agregar error',
+    add: 'Agregar incidencia',
     edit: 'Editar',
     delete: 'Eliminar',
     finish: 'Enviar reporte'
@@ -35,7 +35,7 @@ export default {
     title: 'Carga del reporte',
     subtitle: 'Agrega todas las inconsistencias encontradas',
     desc: 'Descripción',
-    descLabel: 'Describa el error encontrado',
+    descLabel: 'Describa la incidencia encontrada',
     errorMsg: 'Por favor, ingrese por lo menos una incidencia para poder continuar'
   },
   step3: {

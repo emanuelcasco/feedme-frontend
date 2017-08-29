@@ -9,7 +9,7 @@ v-container
         :label="$t('step2.desc')", 
         v-model="issue.desc", 
         textarea
-        v-validate="'required'",
+        v-validate="'required|min:30|max:250'",
         counter, max="250"
       )
       span.span.error-msg(v-show="errors.first('desc')") 
