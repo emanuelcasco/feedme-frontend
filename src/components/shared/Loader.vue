@@ -1,6 +1,6 @@
 <template lang="pug">
   v-container(fluid)
-    v-layout.text-xs-center
+    v-layout
         .loader
 </template>
 
@@ -12,6 +12,7 @@
   border-right: 10px solid #EEEEEE;
   border-bottom: 10px solid #C4D600;
   border-left: 10px solid #EEEEEE;
+  margin: auto;
   width: 100px;
   height: 100px;
   -webkit-animation: spin 2s linear infinite;

@@ -1,48 +1,64 @@
 <template lang="pug">
 v-container
-  label.label Describa el error encontrado
+  label.label
+    | {{ $t('step2.descLabel') }}
   v-layout(row)
     v-flex(xs12)
       v-text-field(
         name='desc', 
-        label='Descripción', 
+        :label="$t('step2.desc')", 
         v-model="issue.desc", 
         textarea
         v-validate="'required'",
         counter, max="250"
       )
-      span.span.error-msg(v-show="errors.first('desc')") {{ errors.first('desc') }}
+      span.span.error-msg(v-show="errors.first('desc')") 
+        | {{ errors.first('desc') }}
+  v-layout(row)
+    v-flex(xs12)
+      label.label
+        | {{ $t('type') }}
+      v-select(
+        label="Error",
+        name="type",
+        segmented,
+        v-bind:items="types"
+        v-model="issue.type"
+      )
   v-layout(row)
     v-flex(xs12, sm6)
-      label.label Prioridad
+      label.label
+        | {{ $t('priority') }}
       v-select(
-        label="Mínima",
+        label="$t('level.minimum')"
         name="priority",
         segmented,
-        v-bind:items="items"
+        v-bind:items="levels"
         v-model="issue.priority"
       )
     v-flex(xs12, sm6)
-      label.label Criticidad
+      label.label
+        | {{ $t('criticity') }}
       v-select(
-        label="Mínima"
+        label="$t('level.minimum')"
         name="criticity",
         segmented,
-        v-bind:items="items",
+        v-bind:items="levels",
         v-model="issue.criticity"
       )
-        
   v-layout(row)
     v-flex(xs12).text-xs-center
       v-btn(secondary, round, small, class="white--text", @click="addIssue")
-        | Agregar
+        | {{ $t('buttons.add') }}
   v-layout(row)
     v-container
       issue-list
   span.span.error-msg(v-if="errorMsg") 
     | {{ errorMsg }}
-  v-btn(primary, round, @click='nextStep') Continue
-  v-btn(round, outline, @click='backStep') Atras
+  v-btn(primary, round, @click='nextStep')
+    | {{ $t('buttons.next') }}
+  v-btn(round, outline, @click='backStep')
+    | {{ $t('buttons.back') }}
 </template>
 
 <script>
@@ -55,10 +71,14 @@ export default {
   data () {
     return {
       errorMsg: null,
-      items: [
-        { text: 'Minima', value: '1' },
-        { text: 'Media', value: '2' },
-        { text: 'Maxima', value: '3' }
+      levels: [
+        { text: this.$t('level.minimum'), value: '1' },
+        { text: this.$t('level.medium'), value: '2' },
+        { text: this.$t('level.maximum'), value: '3' }
+      ],
+      types: [
+        { text: this.$t('types.error'), value: '1' },
+        { text: this.$t('types.upgrade'), value: '2' }
       ]
     }
   },
@@ -83,7 +103,7 @@ export default {
       if (this.report.issues.length > 0) {
         this.$bus.$emit('changeStep', 3)
       } else {
-        this.errorMsg = 'Por favor, ingrese por lo menos un error para poder continuar'
+        this.errorMsg = this.$t('step2.errorMsg')
       }
     },
     backStep () {

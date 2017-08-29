@@ -4,25 +4,25 @@
     v-stepper(v-model='step', vertical, v-else)
       v-container(fluid)
         h2
-          | Bienvenido a FeedMe
+          | {{ $t('welcome') }}
         h3 
           | {{ $t('title', { project: project.name }) }}
         v-stepper-step(step='1', v-bind:complete='step > 1')
           | {{ $t('step1.title') }}
           small 
-            | Así vamos a poder responderte
+            | {{ $t('step1.subtitle') }}
         v-stepper-content(step='1')
           step1
         v-stepper-step(step='2', v-bind:complete='step > 2') 
           | {{ $t('step2.title') }}
           small 
-            | Podes cargar cuantos issues creas necesarios
+            | {{ $t('step2.subtitle') }}
         v-stepper-content(step='2')
           step2
         v-stepper-step(step='3', v-bind:complete='step > 3') 
           | {{ $t('step3.title') }}
           small 
-            | Solo un poco más
+            | {{ $t('step3.subtitle') }}
         v-stepper-content(step='3')
           step3
 </template>

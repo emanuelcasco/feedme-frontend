@@ -1,6 +1,7 @@
 const state = {
   issue: {
     desc: '',
+    type: '1',
     criticity: '1',
     priority: '1'
   }

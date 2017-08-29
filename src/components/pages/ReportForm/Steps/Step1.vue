@@ -1,7 +1,8 @@
 <template lang="pug">
 v-container(fluid).step1
   v-layout(row wrap)
-    label.label {{ $t('step1.name') }}
+    label.label 
+      | {{ $t('step1.name') }}
   v-layout(row wrap)
     v-flex(xs12)
       v-text-field(
@@ -9,11 +10,13 @@ v-container(fluid).step1
         v-model="owner.name",
         type="text",
         v-validate="'required'", 
-        placeholder="Joe Doe"
+        :placeholder="$t('step1.holderName')"
       )
-      span.span.error-msg(v-show="errors.first('name')") {{ errors.first('name') }}
+      span.span.error-msg(v-show="errors.first('name')") 
+        | {{ errors.first('name') }}
   v-layout(row wrap)
-    label.label {{ $t('step1.mail') }}
+    label.label 
+      | {{ $t('step1.mail') }}
   v-layout(row wrap)
     v-flex(xs12)
       v-text-field(
@@ -21,11 +24,13 @@ v-container(fluid).step1
         v-model="owner.mail",
         type="email",
         v-validate="'required|email'", 
-        placeholder="joe.doe@wolox.com.ar"
+        :placeholder="$t('step1.holderMail')"
       )
     v-flex(xs12)
-      span.span.error-msg(v-show="errors.first('mail')") {{ errors.first('mail') }}
-  v-btn(primary, round, @click="nextStep") Continue
+      span.span.error-msg(v-show="errors.first('mail')") 
+        | {{ errors.first('mail') }}
+  v-btn(primary, round, @click="nextStep") 
+    | {{ $t('buttons.next') }}
 </template>
 
 <script>

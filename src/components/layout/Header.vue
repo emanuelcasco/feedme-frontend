@@ -22,9 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 .toolbar {
-  background: none;
+  background-color: #fafafa;
   border-bottom: solid 1px #BBB;
-  box-shadow: none;
 }
 </style>
 

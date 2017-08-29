@@ -1,7 +1,9 @@
 <template lang="pug">
 .end
-  h3 {{ $t('sent.thanks', { name: report.owner.name }) }}
-  button(@click="clear") {{ $t('sent.finish') }}
+  h3 
+    | {{ $t('sent.thanks', { name: report.owner.name }) }}
+  button(@click="clear") 
+    | {{ $t('sent.finish') }}
 </template>
 
 <script>

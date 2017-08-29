@@ -6,11 +6,12 @@
     span 
       | {{ report.owner.mail }}
   issue-list
-
+  span.span.error-msg(v-if="errorMsg") 
+    | {{ errorMsg }}
   v-btn(primary, round, @click="onComplete")
-    | Finalizar
+    | {{ $t('buttons.finish') }}
   v-btn(round, @click='backStep')
-    | Atras
+    | {{ $t('buttons.back') }}
 </template>
 
 <script>
@@ -21,6 +22,11 @@ import { mapGetters } from 'vuex'
 import IssueList from './components/IssueList'
 
 export default {
+  data () {
+    return {
+      errorMsg: null
+    }
+  },
   components: { IssueList },
   computed: {
     ...mapGetters({
@@ -29,9 +35,12 @@ export default {
   },
   methods: {
     onComplete () {
-      reportService.create(this.report)
+      reportService.createReport(this.report)
         .then(response => {
           this.$router.push('/sent')
+        })
+        .catch(() => {
+          this.errorMsg = this.$t('step3.errorMsg')
         })
     },
     backStep () {

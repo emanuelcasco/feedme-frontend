@@ -1,5 +1,18 @@
 export default {
+  welcome: 'Welcome FeedMe',
   title: 'Let {project} be incredible',
+  type: 'Issue type',
+  priority: 'Priority',
+  criticity: 'Criticity',
+  level: {
+    maximum: 'Maximum',
+    medium: 'Medium',
+    minimum: 'Minimum'
+  },
+  types: {
+    error: 'Error',
+    upgrade: 'Upgrade'
+  },
   buttons: {
     back: 'Back',
     next: 'Next',
@@ -10,20 +23,31 @@ export default {
   },
   step1: {
     title: 'Personal info',
+    subtitle: 'Tell us about you',
     name: 'What is your name?',
-    mail: 'Complete your mail'
+    holderName: 'Joe Doe',
+    mail: 'Complete your mail',
+    holderMail: 'joe.doe@wolox.com.ar'
   },
   step2: {
     title: 'Report charge',
+    subtitle: 'Add all issues found',
     desc: 'Description',
-    priority: 'Priority',
-    criticity: 'Criticity'
+    descLabel: 'Describe the error founded',
+    errorMsg: 'Please, add at least one issue to continue'
   },
   step3: {
-    title: 'Confirmation'
+    title: 'Confirmation',
+    subtitle: 'Check the data below',
+    errorMsg: 'There was an error, the report could not be loaded'
+
   },
   sent: {
     thanks: '{name} thank you for your support!',
     finish: 'Finish'
+  },
+  issueList: {
+    issues: 'Issues',
+    errorMsg: 'No issues added'
   }
 }

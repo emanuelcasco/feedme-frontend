@@ -21,8 +21,8 @@ const mutations = {
 }
 
 const actions = {
-  findProyect ({ commit }, projectId) {
-    projectService.find(projectId)
+  findProyect ({ commit }, hash) {
+    projectService.findProjectByHash(hash)
       .then(result => {
         if (result) {
           const project = result
