@@ -1,7 +1,11 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://api-wfeedme.herokuapp.com'
+  baseURL: 'https://api-wfeedme.herokuapp.com',
+  headers: new Headers({
+    'Content-Type': 'application/json',
+    Accept: 'application/json'
+  })
 })
 
 export default api

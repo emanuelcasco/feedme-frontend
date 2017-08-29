@@ -24,6 +24,7 @@ const actions = {
   clearIssue ({ commit }) {
     const issue = {
       desc: '',
+      type: '1',
       criticity: '1',
       priority: '1'
     }

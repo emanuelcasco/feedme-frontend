@@ -19,7 +19,7 @@ v-container
       label.label
         | {{ $t('type') }}
       v-select(
-        label="Error",
+        label="$t('types.error')"
         name="type",
         segmented,
         v-bind:items="types"
@@ -33,7 +33,7 @@ v-container
         label="$t('level.minimum')"
         name="priority",
         segmented,
-        v-bind:items="levels"
+        v-bind:items="priorities"
         v-model="issue.priority"
       )
     v-flex(xs12, sm6)
@@ -43,7 +43,7 @@ v-container
         label="$t('level.minimum')"
         name="criticity",
         segmented,
-        v-bind:items="levels",
+        v-bind:items="criticities",
         v-model="issue.criticity"
       )
   v-layout(row)
@@ -71,7 +71,12 @@ export default {
   data () {
     return {
       errorMsg: null,
-      levels: [
+      priorities: [
+        { text: this.$t('level.low'), value: '1' },
+        { text: this.$t('level.medium'), value: '2' },
+        { text: this.$t('level.high'), value: '3' }
+      ],
+      criticities: [
         { text: this.$t('level.minimum'), value: '1' },
         { text: this.$t('level.medium'), value: '2' },
         { text: this.$t('level.maximum'), value: '3' }

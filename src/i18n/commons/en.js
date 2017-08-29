@@ -7,7 +7,9 @@ export default {
   level: {
     maximum: 'Maximum',
     medium: 'Medium',
-    minimum: 'Minimum'
+    minimum: 'Minimum',
+    low: 'Low',
+    high: 'High'
   },
   types: {
     error: 'Error',
