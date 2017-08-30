@@ -43,7 +43,7 @@ export default {
         .then(response => {
           this.$store.dispatch('clearIssue')
           this.$store.dispatch('clearReport')
-          this.$router.push('/sent')
+          this.$bus.$emit('showDialog')
         })
         .catch(() => {
           this.errorMsg = this.$t('step3.errorMsg')

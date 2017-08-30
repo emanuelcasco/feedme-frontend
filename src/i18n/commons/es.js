@@ -1,7 +1,7 @@
 export default {
   welcome: 'Bienvenido a FeedMe',
   title: 'Hagamos que {project} sea increible',
-  type: 'Tipo de incidencia',
+  type: 'Tipo de problema',
   priority: 'Prioridad',
   criticity: 'Criticidad',
   level: {
@@ -18,7 +18,7 @@ export default {
   buttons: {
     back: 'Anterior',
     next: 'Siguiente',
-    add: 'Agregar incidencia',
+    add: 'Agregar problema',
     edit: 'Editar',
     delete: 'Eliminar',
     finish: 'Enviar reporte'
@@ -33,22 +33,23 @@ export default {
   },
   step2: {
     title: 'Carga del reporte',
-    subtitle: 'Agrega todas las inconsistencias encontradas',
+    subtitle: 'Agrega todos los problemas encontrados',
     desc: 'Descripción',
-    descLabel: 'Describa la incidencia encontrada',
-    errorMsg: 'Por favor, ingrese por lo menos una incidencia para poder continuar'
+    descLabel: 'Describa el problema encontrado',
+    errorMsg: 'Por favor, ingrese por lo menos un problema para poder continuar'
   },
   step3: {
     title: 'Confirmación',
-    subtitle: 'Compruebe los datos a continuación',
+    subtitle: 'Comproba los datos cargados',
     errorMsg: 'Hubo un error, no se pudo cargar el reporte'
   },
-  sent: {
-    thanks: '¡{name} muchas gracias por tu aporte!',
+  step4: {
+    title: 'Reporte enviado exitosamente',
+    message: '¡Muchas gracias por tu aporte! Juntos, estamos haciendo a {project} increíble',
     finish: 'Finalizar'
   },
   issueList: {
     issues: 'Incidencias',
-    errorMsg: 'No hay incidencias cargadas'
+    errorMsg: 'No hay problemas cargados'
   }
 }

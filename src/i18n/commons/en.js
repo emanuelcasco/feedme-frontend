@@ -1,5 +1,5 @@
 export default {
-  welcome: 'Welcome FeedMe',
+  welcome: 'Welcome to FeedMe',
   title: 'Let {project} be incredible',
   type: 'Issue type',
   priority: 'Priority',
@@ -32,20 +32,20 @@ export default {
     holderMail: 'joe.doe@wolox.com.ar'
   },
   step2: {
-    title: 'Report charge',
+    title: 'Report upload',
     subtitle: 'Add all issues found',
     desc: 'Description',
-    descLabel: 'Describe the error founded',
+    descLabel: 'Describe the issues found',
     errorMsg: 'Please, add at least one issue to continue'
   },
   step3: {
     title: 'Confirmation',
-    subtitle: 'Check the data below',
+    subtitle: 'Check uploaded data',
     errorMsg: 'There was an error, the report could not be loaded'
-
   },
-  sent: {
-    thanks: '{name} thank you for your support!',
+  step4: {
+    title: 'Report sent succesfully!',
+    message: 'Thank you for your support! Together, we are making {project} incredible!',
     finish: 'Finish'
   },
   issueList: {

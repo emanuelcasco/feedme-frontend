@@ -33,6 +33,9 @@ const actions = {
           commit('projectNotFound', true)
         }
       })
+  },
+  clearProject ({ commit }) {
+    commit('setProject', null)
   }
 }
 

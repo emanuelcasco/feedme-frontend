@@ -31,8 +31,7 @@ export default {
   data () {
     return {
       code: '',
-      errorMsg: null,
-      msg: 'Welcome to Your Vue.js App'
+      errorMsg: null
     }
   },
   methods: {
