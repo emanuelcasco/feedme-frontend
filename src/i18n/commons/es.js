@@ -49,7 +49,7 @@ export default {
     finish: 'Finalizar'
   },
   issueList: {
-    issues: 'Incidencias',
+    issues: 'Problemas',
     errorMsg: 'No hay problemas cargados'
   }
 }
