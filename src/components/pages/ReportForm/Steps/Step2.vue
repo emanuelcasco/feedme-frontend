@@ -18,32 +18,32 @@ v-container
       label.label
         | {{ $t('type') }}
       v-select(
-        label="$t('types.error')"
         name="type",
-        segmented,
-        v-bind:items="types"
-        v-model="issue.type"
+        :label="$t('type')",
+        v-model="issue.type",
+        v-bind:items="types",
+        one-line
       )
   v-layout(row)
     v-flex(xs12, sm6)
       label.label
         | {{ $t('priority') }}
       v-select(
-        label="$t('level.minimum')"
         name="priority",
-        segmented,
-        v-bind:items="priorities"
-        v-model="issue.priority"
+        :label="$t('priority')",
+        v-model="issue.priority",
+        v-bind:items="priorities",
+        one-line
       )
     v-flex(xs12, sm6)
       label.label
         | {{ $t('criticity') }}
       v-select(
-        label="$t('level.minimum')"
         name="criticity",
-        segmented,
+        :label="$t('criticity')",
+        v-model="issue.criticity",
         v-bind:items="criticities",
-        v-model="issue.criticity"
+        one-line
       )
   v-layout(row)
     v-flex(xs12).text-xs-center
