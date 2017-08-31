@@ -2,7 +2,7 @@
 v-container
   v-layout(row)
     v-flex(xs12)
-      label.label
+      label.step__label
         | {{ $t('step2.descLabel') }}
       v-text-field(
         name='desc', 
@@ -11,11 +11,11 @@ v-container
         v-validate="'required|min:30|max:500'",
         counter, max="500"
       )
-      span.span.error-msg(v-show="errors.first('desc')") 
+      span.step__errorMsg(v-show="errors.first('desc')") 
         | {{ errors.first('desc') }}
   v-layout(row)
     v-flex(xs12)
-      label.label
+      label.step__label
         | {{ $t('type') }}
       v-select(
         name="type",
@@ -26,7 +26,7 @@ v-container
       )
   v-layout(row)
     v-flex(xs12, sm6)
-      label.label
+      label.step__label
         | {{ $t('priority') }}
       v-select(
         name="priority",
@@ -36,7 +36,7 @@ v-container
         one-line
       )
     v-flex(xs12, sm6)
-      label.label
+      label.step__label
         | {{ $t('criticity') }}
       v-select(
         name="criticity",
@@ -52,7 +52,7 @@ v-container
   v-layout(row)
     v-container
       issue-list
-  span.span.error-msg(v-if="errorMsg") 
+  span.step__errorMsg(v-if="errorMsg") 
     | {{ errorMsg }}
   v-layout(row)
     v-container

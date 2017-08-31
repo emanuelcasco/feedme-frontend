@@ -90,39 +90,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-.label {
-  font-weight: bold;
-}
-
-.span {
-  margin-top: -25px;
-  margin-bottom: 20px;
-  display: block;
-}
-
-.overlay--active:before {
-    opacity: 0.99;
-}
-
-.error-msg {
-  color: red;
-  font-style: italic;
-}
-
-@media (max-width: 900px) {
-  .issue{
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-}
-@media (min-width: 900px) {
-  .issue {
-    margin-left: 15%;
-    margin-right: 15%;
-  }
-}
-
-</style>

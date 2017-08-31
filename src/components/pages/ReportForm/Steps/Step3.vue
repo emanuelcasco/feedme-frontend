@@ -1,5 +1,5 @@
 <template lang="pug">
-.step3.reportDetail
+.step3
   v-container
     h4 
       | {{ report.owner.name }}
@@ -7,10 +7,10 @@
       | {{ report.owner.mail }}
   v-layout(row)
     v-container
-      issue-list.issueList
+      issue-list
   v-layout(row)
     v-container
-      span.span.error-msg(v-if="errorMsg") 
+      span.step__errorMsg(v-if="errorMsg") 
         | {{ errorMsg }}
   v-btn(primary, round, @click="onComplete")
     | {{ $t('buttons.finish') }}

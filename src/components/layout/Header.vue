@@ -1,10 +1,10 @@
 <template lang="pug">
-  v-toolbar
+  v-toolbar.header
     router-link(:to="{ path: '/' }")
       img(src="../../assets/logo.svg", width="150")
     v-spacer
     v-toolbar-items.hidden-xs
-      v-btn(disabled flat) 
+      v-btn.header__project(disabled flat) 
         | {{ project ? project.name : '' }}
 </template>
 
@@ -19,12 +19,3 @@ export default {
   }
 }
 </script>
-
-
-<style lang="scss" scoped>
-.toolbar {
-  background-color: #fafafa;
-  border-bottom: solid 1px #BBB;
-}
-</style>
-

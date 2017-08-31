@@ -2,23 +2,27 @@
 v-list(three-line)
   h5.text-xs-left
     | {{ $t('issueList.issues') }}
-  v-expansion-panel
-    v-expansion-panel-content(v-for='issue, index  in report.issues', v-bind:key='index ')
+  v-expansion-panel.issueList__panel
+    v-expansion-panel-content.issueList__li(v-for='issue, index  in report.issues', v-bind:key='index')
       div(slot='header') 
         v-icon(@click="editIssue(index, issue)").indigo--text edit
         v-icon(@click="removeIssue(index)").red--text delete
-        b Nº {{ index + 1 }}: 
+        b 
+          | Nº {{ index + 1 }}: 
         | {{ issue.desc | elipsis }}
       v-card
         v-card-text.grey.lighten-3
           | {{ issue.desc }}
           div
             v-chip(outline)
-              b {{ types[issue.type - 1] }}
+              b 
+                | {{ types[issue.type - 1] }}
             v-chip(outline)
-              b {{ $t('priority') }} {{ priorities[issue.priority - 1] }}
+              b
+                | {{ $t('priority') }} {{ priorities[issue.priority - 1] }}
             v-chip(outline)
-              b {{ $t('criticity') }} {{ criticities[issue.criticity - 1] }}
+              b 
+                | {{ $t('criticity') }} {{ criticities[issue.criticity - 1] }}
     p(v-if="report.issues.length === 0")
       | {{ $t('issueList.errorMsg') }}
 </template>
@@ -63,8 +67,7 @@ export default {
       if (this.report.issues.length === 0) {
         this.$bus.$emit('changeStep', 2)
       }
-    },
-    showDescription () {}
+    }
   },
   filters: {
     elipsis (value) {
@@ -77,15 +80,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.expansion-panel {
-  box-shadow: none;
-  li {
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
-    border-left: none;
-    border-right: none;
-  }
-}
-</style>

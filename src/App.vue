@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app(toolbar footer fill-height)
     fm-header
-    main
+    main.layout
       v-container(fluid)
         router-view
     fm-footer
@@ -18,16 +18,5 @@ export default {
 </script>
 
 <style lang="scss">
-$primary: red;
-
-@import"~vuetify/dist/vuetify.min.css";
-
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
+  @import"./scss/all";
 </style>

@@ -1,0 +1,9 @@
+.issueList__panel {
+  box-shadow: none;
+  .issueList__li {
+    border-top: 1px solid $whitesmoke;
+    border-bottom: 1px solid $whitesmoke;
+    border-left: none;
+    border-right: none;
+  }
+}

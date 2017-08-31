@@ -1,0 +1,15 @@
+.step__label {
+  font-weight: bold;
+}
+
+.step__errorMsg {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  display: block;
+  color: $error;
+  font-style: italic;
+}
+
+.overlay--active:before {
+    opacity: 0.99;
+}

@@ -1,7 +1,7 @@
 <template lang="pug">
-v-container(fluid).step1
+v-container(fluid)
   v-layout(row wrap)
-    label.label 
+    label.step__label 
       | {{ $t('step1.name') }}
   v-layout(row wrap)
     v-flex(xs12)
@@ -12,10 +12,10 @@ v-container(fluid).step1
         v-validate="'required'", 
         :placeholder="$t('step1.holderName')"
       )
-      span.span.error-msg(v-show="errors.first('name')") 
+      span.step__errorMsg(v-show="errors.first('name')") 
         | {{ errors.first('name') }}
   v-layout(row wrap)
-    label.label 
+    label.step__label 
       | {{ $t('step1.mail') }}
   v-layout(row wrap)
     v-flex(xs12)
@@ -27,7 +27,7 @@ v-container(fluid).step1
         :placeholder="$t('step1.holderMail')"
       )
     v-flex(xs12)
-      span.span.error-msg(v-show="errors.first('mail') && fields.mail.touched") 
+      span.step__errorMsg(v-show="errors.first('mail')") 
         | {{ errors.first('mail') }} 
   v-btn(primary, round, @click="nextStep") 
     | {{ $t('buttons.next') }}

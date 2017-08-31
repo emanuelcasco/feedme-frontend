@@ -18,7 +18,7 @@ v-container(fluid)
         type="text",
         v-validate="'required'"
       )
-      span.span.error-msg(v-if="errorMsg") 
+      span.step__errorMsg(v-if="errorMsg") 
         | {{ errorMsg.items[0].msg }}
       div
         v-btn(principal dark, @click="searchByCode") 
