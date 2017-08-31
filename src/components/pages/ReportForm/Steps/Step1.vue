@@ -27,7 +27,7 @@ v-container(fluid)
         :placeholder="$t('step1.holderMail')"
       )
     v-flex(xs12)
-      span.step__errorMsg(v-show="errors.first('mail')") 
+      span.step__errorMsg(v-show="errors.first('mail') && showError") 
         | {{ errors.first('mail') }} 
   v-btn(primary, round, @click="nextStep") 
     | {{ $t('buttons.next') }}
@@ -40,15 +40,19 @@ export default {
       owner: {
         name: '',
         mail: ''
-      }
+      },
+      showError: false
     }
   },
   methods: {
     nextStep () {
       this.$validator.validateAll().then(ok => {
+        this.showError = false
         if (ok) {
           this.$store.dispatch('updateOwner', this.owner)
           this.$bus.$emit('changeStep', 2)
+        } else {
+          this.showError = true
         }
       })
     }
