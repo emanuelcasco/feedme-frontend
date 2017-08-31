@@ -4,6 +4,6 @@
       | © {{ new Date().getFullYear() }} - Made with 
       b.red--text ❤ 
       | by 
-      a.link(href="https://www.wolox.com.ar/")
+      a.footer__link(href="https://www.wolox.com.ar/")
         | WOLOX
 </template>

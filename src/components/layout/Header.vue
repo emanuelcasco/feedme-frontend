@@ -1,7 +1,7 @@
 <template lang="pug">
   v-toolbar.header
     router-link(:to="{ path: '/' }")
-      img(src="../../assets/logo.svg", width="150")
+      img.header__logo(src="../../assets/logo.svg")
     v-spacer
     v-toolbar-items.hidden-xs
       v-btn.header__project(disabled flat) 

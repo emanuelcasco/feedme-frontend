@@ -1,8 +1,8 @@
 .footer {
   background-color: $dark-grey !important;
   color: $whitesmoke;
-  .link {
-    color: $whitesmoke;
+  &__link {
+    color: $w-green;
     text-decoration: none;
   }
 }

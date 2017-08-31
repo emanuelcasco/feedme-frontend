@@ -2,8 +2,16 @@
   background-color: $whitesmoke !important;
   border-bottom: solid 1px $ligth-grey !important;
   box-shadow: none;
+
+  &__logo {
+    width: 130px;
+    height: auto;
+  }
+
+  &__project {
+    color: $dark-grey !important;
+  }
 }
 
-.header__project {
-  color: $dark-grey !important;
-}
+
+
