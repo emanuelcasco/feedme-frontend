@@ -27,8 +27,8 @@ v-container(fluid).step1
         :placeholder="$t('step1.holderMail')"
       )
     v-flex(xs12)
-      span.span.error-msg(v-show="errors.first('mail')") 
-        | {{ errors.first('mail') }}
+      span.span.error-msg(v-show="errors.first('mail') && fields.mail.touched") 
+        | {{ errors.first('mail') }} 
   v-btn(primary, round, @click="nextStep") 
     | {{ $t('buttons.next') }}
 </template>
