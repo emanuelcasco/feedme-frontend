@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app(toolbar footer fill-height)
     fm-header
-    main.layout
+    main.app-layout
       v-container(fluid)
         router-view
     fm-footer
