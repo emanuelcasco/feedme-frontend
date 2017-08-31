@@ -8,20 +8,20 @@
 
 // large
 @media screen and (min-width: 1024px) {
-  .appLayout {
+  .app-layout {
     padding-left: 15%;
     padding-right: 15%;
   }
 }
 // medium
 @media screen and (max-width:1024px) {
-  .appLayout {
+  .app-layout {
     padding: 5%;
   }
 }
 // small
 @media screen and (max-width: 600px) {
-  .appLayout {
+  .app-layout {
     padding: 0%;
   }
 }
